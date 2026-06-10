@@ -1,3 +1,234 @@
-<!-- Demo site for clovers-bar-grill -- build goes here -->
 <!DOCTYPE html>
-<html><head><title>clovers-bar-grill Demo</title></head><body><h1>clovers-bar-grill — Coming Soon</h1></body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clover's Bar & Grill — great food, cold drinks, and good company in Oak Forest, IL. Call (708) 555-0100.">
+    <title>Clover's Bar &amp; Grill | Oak Forest, IL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:      #09120a;
+            --bg-mid:  #0f1c10;
+            --bg-warm: #142015;
+            --green:   #2a6b2e;
+            --gold:    #c9a227;
+            --gold-lt: #dbb540;
+            --white:   #f2ede0;
+            --muted:   #7a8a6a;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--white); font-family: 'Barlow', sans-serif; overflow-x: hidden; }
+
+        /* HEADER */
+        header {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--bg); border-bottom: 2px solid var(--green);
+            padding: 11px 24px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-family: 'Oswald', sans-serif; font-size: 1.35rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+        .logo span { color: var(--gold); }
+        .btn-call {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: var(--gold); color: var(--bg);
+            padding: 9px 18px; border-radius: 2px; text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.08em;
+            transition: background 0.2s;
+        }
+        .btn-call:hover { background: var(--gold-lt); }
+
+        /* HERO */
+        .hero {
+            position: relative; overflow: hidden;
+            padding: 52px 24px 46px;
+            background: var(--bg-mid);
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 80% 50%, rgba(42,107,46,0.1) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: ''; position: absolute;
+            bottom: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201,162,39,0.3), transparent);
+        }
+        .hero-inner { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; }
+        .hero-tag {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+            margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+        }
+        .hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+        h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2.8rem, 8vw, 5.5rem); font-weight: 700; line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 14px; }
+        h1 span { color: var(--gold); }
+        .hero-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; color: var(--muted); margin-bottom: 28px; letter-spacing: 0.04em; line-height: 1.55; }
+        .hero-sub strong { color: var(--white); }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 8px;
+            border: 1px solid rgba(255,255,255,0.18); color: var(--white);
+            padding: 9px 18px; border-radius: 2px; text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+        .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+        .pill {
+            background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.2);
+            color: var(--gold); padding: 5px 14px; border-radius: 20px;
+            font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+        }
+
+        /* HOURS STRIP */
+        .hours-strip {
+            background: var(--green); padding: 12px 24px;
+            display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 20px;
+        }
+        .hs-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+        .hs-time { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.04em; color: var(--white); }
+        .hs-sep { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+
+        /* MAIN */
+        .main { max-width: 960px; margin: 0 auto; }
+        .two-col { display: grid; grid-template-columns: 1fr; gap: 2px; background: rgba(255,255,255,0.05); }
+        @media (min-width: 700px) { .two-col { grid-template-columns: 1fr 1fr; } }
+        .panel { background: var(--bg-mid); padding: 32px 28px; }
+        .panel-alt { background: var(--bg-warm); }
+        .panel-label {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+            margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+        }
+        .panel-label::after { content: ''; flex: 1; max-width: 28px; height: 1px; background: var(--gold); opacity: 0.5; }
+
+        /* MENU TEASERS */
+        .menu-cats { display: flex; flex-direction: column; gap: 14px; }
+        .menu-cat { border-left: 2px solid var(--green); padding-left: 14px; }
+        .menu-cat-name { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--white); margin-bottom: 4px; }
+        .menu-items { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; color: var(--muted); letter-spacing: 0.03em; }
+
+        .hours-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+        .hours-table tr { border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .hours-table tr:last-child { border-bottom: none; }
+        .hours-table td { padding: 9px 0; font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; }
+        .hours-table td:first-child { color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.1em; }
+        .hours-table td:last-child { text-align: right; color: var(--white); font-weight: 600; }
+
+        .contact-stack { display: flex; flex-direction: column; gap: 16px; }
+        .c-row { display: flex; gap: 12px; align-items: flex-start; }
+        .c-icon { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+        .c-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+        .c-val { font-size: 0.95rem; color: var(--white); line-height: 1.5; }
+        .c-val a { color: var(--white); text-decoration: none; }
+        .c-val a:hover { color: var(--gold); }
+
+        /* FOOTER */
+        footer { background: var(--bg); border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 24px; }
+        .footer-inner { max-width: 960px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+        .footer-logo { font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--white); }
+        .footer-logo span { color: var(--gold); }
+        .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; }
+        .footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--gold); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">Clover's <span>Bar &amp; Grill</span></a>
+    <a href="tel:7085550100" class="btn-call">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call Us
+    </a>
+</header>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-tag">Oak Forest, IL &mdash; Bar &amp; Grill</div>
+        <h1>Good Food.<br><span>Great Times.</span></h1>
+        <p class="hero-sub"><strong>Burgers, appetizers, cold drafts, and game day specials.</strong><br>Oak Forest's spot for a casual meal or a night out with friends.</p>
+        <div class="hero-actions">
+            <a href="tel:7085550100" class="btn-call">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                Call Us
+            </a>
+            <a href="https://maps.google.com/?q=15548+Cicero+Oak+Forest+IL+60452" target="_blank" rel="noopener" class="btn-outline">Directions</a>
+        </div>
+        <div class="hero-pills">
+            <span class="pill">Bar &amp; Grill</span>
+            <span class="pill">Game Day Specials</span>
+            <span class="pill">Daily Drinks</span>
+            <span class="pill">Dine In</span>
+        </div>
+    </div>
+</section>
+
+<div class="hours-strip">
+    <span class="hs-label">Open</span>
+    <span class="hs-time">Mon &ndash; Fri: 11am &ndash; 2am</span>
+    <span class="hs-sep">&middot;</span>
+    <span class="hs-time">Sat &ndash; Sun: 10am &ndash; 2am</span>
+</div>
+
+<div class="main">
+    <div class="two-col">
+        <div class="panel">
+            <div class="panel-label">Menu Highlights</div>
+            <div class="menu-cats">
+                <div class="menu-cat">
+                    <div class="menu-cat-name">Burgers &amp; Sandwiches</div>
+                    <div class="menu-items">Half-pound burgers, chicken sandwiches, Reubens, BLTs</div>
+                </div>
+                <div class="menu-cat">
+                    <div class="menu-cat-name">Appetizers</div>
+                    <div class="menu-items">Wings, mozzarella sticks, nachos, potato skins, fried pickles</div>
+                </div>
+                <div class="menu-cat">
+                    <div class="menu-cat-name">Mains</div>
+                    <div class="menu-items">Fish &amp; chips, pasta, salads, daily specials</div>
+                </div>
+                <div class="menu-cat">
+                    <div class="menu-cat-name">Bar</div>
+                    <div class="menu-items">Domestic &amp; craft drafts, cocktails, shots, wine</div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-alt">
+            <div class="panel-label">Hours</div>
+            <table class="hours-table">
+                <tr><td>Monday &ndash; Friday</td><td>11:00 AM &ndash; 2:00 AM</td></tr>
+                <tr><td>Saturday</td><td>10:00 AM &ndash; 2:00 AM</td></tr>
+                <tr><td>Sunday</td><td>10:00 AM &ndash; 2:00 AM</td></tr>
+            </table>
+            <div class="panel-label">Find Us</div>
+            <div class="contact-stack">
+                <div class="c-row">
+                    <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <div><div class="c-label">Phone</div><div class="c-val"><a href="tel:7085550100">(708) 555-0100</a></div></div>
+                </div>
+                <div class="c-row">
+                    <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <div><div class="c-label">Email</div><div class="c-val"><a href="mailto:cloversoakforest@gmail.com">cloversoakforest@gmail.com</a></div></div>
+                </div>
+                <div class="c-row">
+                    <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div><div class="c-label">Address</div><div class="c-val">15548 Cicero Ave<br>Oak Forest, IL 60452</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">Clover's <span>Bar &amp; Grill</span></div>
+        <div class="footer-copy">&copy; 2025 Clover's Bar &amp; Grill &middot; Oak Forest, IL</div>
+        <a href="tel:7085550100" class="footer-phone">(708) 555-0100</a>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,3 +1,217 @@
-<!-- Demo site for cindys-pub -- build goes here -->
 <!DOCTYPE html>
-<html><head><title>cindys-pub Demo</title></head><body><h1>cindys-pub — Coming Soon</h1></body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cindy's Pub — your neighborhood bar in Oak Forest, IL. Cold drinks, good people. Call (708) 687-6918.">
+    <title>Cindy's Pub | Oak Forest, IL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:      #110d09;
+            --bg-mid:  #1c1510;
+            --bg-warm: #241b12;
+            --gold:    #c8922a;
+            --gold-lt: #e0a83a;
+            --white:   #f5efe6;
+            --muted:   #8a7a6a;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--white); font-family: 'Barlow', sans-serif; overflow-x: hidden; }
+
+        /* HEADER */
+        header {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--bg); border-bottom: 1px solid rgba(200,146,42,0.3);
+            padding: 12px 24px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: 0.01em; }
+        .logo span { color: var(--gold); }
+        .btn-call {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: var(--gold); color: var(--bg);
+            padding: 9px 18px; border-radius: 2px; text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.08em;
+            transition: background 0.2s;
+        }
+        .btn-call:hover { background: var(--gold-lt); }
+
+        /* HERO */
+        .hero {
+            position: relative; overflow: hidden;
+            padding: 56px 24px 48px;
+            background: var(--bg-mid);
+        }
+        /* Candlelight glow effect */
+        .hero::before {
+            content: ''; position: absolute;
+            top: -60px; right: 10%;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(200,146,42,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: ''; position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 1px; background: linear-gradient(90deg, transparent, rgba(200,146,42,0.3), transparent);
+        }
+        .hero-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+        .hero-tag {
+            display: inline-block; font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 16px;
+            border: 1px solid rgba(200,146,42,0.3); padding: 4px 12px; border-radius: 2px;
+        }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 9vw, 5.5rem); font-weight: 900; line-height: 1; margin-bottom: 14px; }
+        h1 em { color: var(--gold); font-style: italic; display: block; }
+        .hero-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; color: var(--muted); margin-bottom: 28px; letter-spacing: 0.04em; line-height: 1.5; }
+        .hero-sub strong { color: var(--white); }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 8px;
+            border: 1px solid rgba(255,255,255,0.2); color: var(--white);
+            padding: 9px 18px; border-radius: 2px; text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* HOURS — most important section for a bar */
+        .hours-bar {
+            background: var(--gold); color: var(--bg);
+            padding: 14px 24px;
+            display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 24px;
+        }
+        .hours-bar-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; }
+        .hours-bar-times { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.05em; }
+        .hours-divider { opacity: 0.4; }
+
+        /* MAIN GRID */
+        .main { max-width: 960px; margin: 0 auto; padding: 0 0 2px; }
+        .two-col { display: grid; grid-template-columns: 1fr; gap: 2px; background: rgba(255,255,255,0.05); }
+        @media (min-width: 700px) { .two-col { grid-template-columns: 1fr 1fr; } }
+
+        .panel { background: var(--bg-mid); padding: 32px 28px; }
+        .panel-alt { background: var(--bg-warm); }
+
+        .panel-label {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+            margin-bottom: 18px; display: flex; align-items: center; gap: 8px;
+        }
+        .panel-label::after { content: ''; flex: 1; max-width: 28px; height: 1px; background: var(--gold); opacity: 0.6; }
+
+        .hours-table { width: 100%; border-collapse: collapse; }
+        .hours-table tr { border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .hours-table tr:last-child { border-bottom: none; }
+        .hours-table td { padding: 10px 0; font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; }
+        .hours-table td:first-child { color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.1em; }
+        .hours-table td:last-child { text-align: right; color: var(--white); font-weight: 600; }
+
+        .contact-stack { display: flex; flex-direction: column; gap: 20px; }
+        .c-row { display: flex; gap: 14px; align-items: flex-start; }
+        .c-icon { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+        .c-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+        .c-val { font-size: 0.95rem; color: var(--white); line-height: 1.5; }
+        .c-val a { color: var(--white); text-decoration: none; }
+        .c-val a:hover { color: var(--gold); }
+
+        .map-box {
+            background: var(--bg); border: 1px solid rgba(200,146,42,0.15); border-radius: 2px;
+            height: 110px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 8px; position: relative; overflow: hidden; text-decoration: none; margin-top: 20px;
+        }
+        .map-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(200,146,42,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(200,146,42,0.05) 1px, transparent 1px); background-size: 24px 24px; }
+        .map-dot { width: 9px; height: 9px; background: var(--gold); border-radius: 50%; position: relative; z-index: 2; box-shadow: 0 0 0 3px rgba(200,146,42,0.2); }
+        .map-dot::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--gold); opacity: 0.35; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: translate(-50%,-50%) scale(0.8); opacity: 0.35; } 100% { transform: translate(-50%,-50%) scale(2.4); opacity: 0; } }
+        .map-text { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); position: relative; z-index: 2; }
+
+        /* FOOTER */
+        footer { background: var(--bg); border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 24px; }
+        .footer-inner { max-width: 960px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); }
+        .footer-logo span { color: var(--gold); }
+        .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; }
+        .footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--gold); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">Cindy's <span>Pub</span></a>
+    <a href="tel:7086876918" class="btn-call">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (708) 687-6918
+    </a>
+</header>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-tag">Oak Forest, IL</div>
+        <h1>Your Kind<em>of Bar.</em></h1>
+        <p class="hero-sub"><strong>Cold drinks. Friendly faces. No pretense.</strong><br>A neighborhood bar where Oak Forest comes to unwind.</p>
+        <div class="hero-actions">
+            <a href="tel:7086876918" class="btn-call">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                Call Us
+            </a>
+            <a href="https://maps.google.com/?q=5230+W+159th+Street+Oak+Forest+IL+60452" target="_blank" rel="noopener" class="btn-outline">Get Directions</a>
+        </div>
+    </div>
+</section>
+
+<!-- Hours banner — first thing a bar visitor needs -->
+<div class="hours-bar">
+    <span class="hours-bar-label">Hours</span>
+    <span class="hours-bar-times">Mon &ndash; Fri: 11am &ndash; 2am</span>
+    <span class="hours-divider">&middot;</span>
+    <span class="hours-bar-times">Sat: 11am &ndash; 3am</span>
+    <span class="hours-divider">&middot;</span>
+    <span class="hours-bar-times">Sun: 12pm &ndash; 2am</span>
+</div>
+
+<div class="main">
+    <div class="two-col">
+        <div class="panel">
+            <div class="panel-label">Hours</div>
+            <table class="hours-table">
+                <tr><td>Monday &ndash; Friday</td><td>11:00 AM &ndash; 2:00 AM</td></tr>
+                <tr><td>Saturday</td><td>11:00 AM &ndash; 3:00 AM</td></tr>
+                <tr><td>Sunday</td><td>12:00 PM &ndash; 2:00 AM</td></tr>
+            </table>
+        </div>
+        <div class="panel panel-alt">
+            <div class="panel-label">Find Us</div>
+            <div class="contact-stack">
+                <div class="c-row">
+                    <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <div><div class="c-label">Phone</div><div class="c-val"><a href="tel:7086876918">(708) 687-6918</a></div></div>
+                </div>
+                <div class="c-row">
+                    <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div><div class="c-label">Address</div><div class="c-val">5230 W. 159th Street<br>Oak Forest, IL 60452</div></div>
+                </div>
+            </div>
+            <a href="https://maps.google.com/?q=5230+W+159th+Street+Oak+Forest+IL+60452" target="_blank" rel="noopener" class="map-box">
+                <div class="map-grid"></div>
+                <div class="map-dot"></div>
+                <div class="map-text">Get Directions &rarr;</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">Cindy's <span>Pub</span></div>
+        <div class="footer-copy">&copy; 2025 Cindy's Pub &middot; Oak Forest, IL 60452</div>
+        <a href="tel:7086876918" class="footer-phone">(708) 687-6918</a>
+    </div>
+</footer>
+
+</body>
+</html>

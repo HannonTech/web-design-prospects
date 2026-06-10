@@ -1,3 +1,233 @@
-<!-- Demo site for sr-construction -- build goes here -->
 <!DOCTYPE html>
-<html><head><title>sr-construction Demo</title></head><body><h1>sr-construction — Coming Soon</h1></body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="S.R. Construction — Oak Forest general contractor with 20+ years of experience. Remodeling, repairs, and new construction. Call (708) 945-9119.">
+    <title>S.R. Construction | Oak Forest, IL General Contractor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:      #111418;
+            --bg-mid:  #181d23;
+            --bg-warm: #1d2229;
+            --orange:  #ea6c1e;
+            --orange-lt:#f07d35;
+            --white:   #f0ede8;
+            --muted:   #7a8898;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--white); font-family: 'Barlow', sans-serif; overflow-x: hidden; }
+
+        /* HEADER */
+        header {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--bg); border-bottom: 2px solid var(--orange);
+            padding: 11px 24px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.35rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+        .logo span { color: var(--orange); }
+        .btn-call {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: var(--orange); color: var(--white);
+            padding: 9px 18px; border-radius: 2px; text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase;
+            transition: background 0.2s;
+        }
+        .btn-call:hover { background: var(--orange-lt); }
+
+        /* HERO */
+        .hero {
+            position: relative; overflow: hidden;
+            padding: 52px 24px 46px;
+            background: var(--bg-mid);
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; right: -5%; bottom: 0; width: 35%;
+            background: var(--orange); clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%); opacity: 0.06;
+        }
+        /* Large "20+" watermark */
+        .hero-watermark {
+            position: absolute; right: 2%; bottom: -10%;
+            font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+            font-size: clamp(7rem, 18vw, 14rem); color: white; opacity: 0.03;
+            line-height: 1; pointer-events: none; user-select: none; letter-spacing: -0.02em;
+        }
+        .hero-inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+        .hero-eyebrow {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 700;
+            letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange);
+            margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+        }
+        .hero-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--orange); }
+        h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.8rem, 8vw, 5.5rem); font-weight: 800; line-height: 0.95; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 14px; }
+        h1 span { color: var(--orange); display: block; }
+        .hero-sub { font-size: 1.05rem; color: var(--muted); margin-bottom: 28px; line-height: 1.6; max-width: 520px; }
+        .hero-sub strong { color: var(--white); }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 8px;
+            border: 1.5px solid rgba(255,255,255,0.18); color: var(--white);
+            padding: 9px 18px; border-radius: 2px; text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+        .trust-badges { display: flex; flex-wrap: wrap; gap: 14px; }
+        .badge {
+            display: flex; align-items: center; gap: 7px;
+            font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; color: var(--muted); letter-spacing: 0.05em;
+        }
+        .badge::before { content: ''; width: 5px; height: 5px; background: var(--orange); border-radius: 50%; flex-shrink: 0; }
+
+        /* MAIN */
+        .main { max-width: 960px; margin: 0 auto; }
+        .two-col { display: grid; grid-template-columns: 1fr; gap: 2px; background: rgba(255,255,255,0.05); }
+        @media (min-width: 700px) { .two-col { grid-template-columns: 1fr 1fr; } }
+        .panel { background: var(--bg-mid); padding: 32px 28px; }
+        .panel-alt { background: var(--bg-warm); }
+        .panel-label {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange);
+            margin-bottom: 18px; display: flex; align-items: center; gap: 8px;
+        }
+        .panel-label::after { content: ''; flex: 1; max-width: 28px; height: 2px; background: var(--orange); }
+        .panel-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 16px; }
+
+        .service-list { display: flex; flex-direction: column; gap: 2px; }
+        .service-item {
+            display: flex; align-items: center; gap: 10px;
+            background: var(--bg); padding: 11px 14px;
+            font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+            border-left: 2px solid transparent; transition: border-color 0.15s, background 0.15s;
+        }
+        .service-item:hover { background: var(--bg-warm); border-left-color: var(--orange); }
+        .service-item svg { color: var(--orange); flex-shrink: 0; }
+
+        .about-text { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+        .about-text strong { color: var(--white); }
+
+        .stat-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(255,255,255,0.05); margin-bottom: 24px; }
+        .stat { background: var(--bg); padding: 18px 14px; text-align: center; }
+        .stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--orange); line-height: 1; display: block; }
+        .stat-lbl { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+
+        .contact-stack { display: flex; flex-direction: column; gap: 16px; }
+        .c-row { display: flex; gap: 12px; align-items: flex-start; }
+        .c-icon { width: 18px; height: 18px; color: var(--orange); flex-shrink: 0; margin-top: 2px; }
+        .c-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+        .c-val { font-size: 0.95rem; color: var(--white); }
+        .c-val a { color: var(--white); text-decoration: none; }
+        .c-val a:hover { color: var(--orange); }
+
+        /* FOOTER */
+        footer { background: var(--bg); border-top: 1px solid rgba(255,255,255,0.07); padding: 20px 24px; }
+        .footer-inner { max-width: 960px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+        .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--white); }
+        .footer-logo span { color: var(--orange); }
+        .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; }
+        .footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--orange); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">S.R. <span>Construction</span></a>
+    <a href="tel:7089459119" class="btn-call">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Free Estimate
+    </a>
+</header>
+
+<section class="hero">
+    <div class="hero-watermark">20+</div>
+    <div class="hero-inner">
+        <div class="hero-eyebrow">Oak Forest, IL &mdash; General Contractor</div>
+        <h1>Built Right.<span>Built to Last.</span></h1>
+        <p class="hero-sub"><strong>Over 20 years of quality construction work</strong> in Oak Forest and the surrounding area. No subs, no shortcuts — we do the work ourselves.</p>
+        <div class="hero-actions">
+            <a href="tel:7089459119" class="btn-call">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                Call for a Free Estimate
+            </a>
+            <a href="mailto:srconstruction9119@gmail.com" class="btn-outline">Email Us</a>
+        </div>
+        <div class="trust-badges">
+            <span class="badge">20+ Years Experience</span>
+            <span class="badge">Oak Forest Based</span>
+            <span class="badge">Free Estimates</span>
+            <span class="badge">Licensed &amp; Insured</span>
+        </div>
+    </div>
+</section>
+
+<div class="main">
+    <div class="two-col">
+        <div class="panel">
+            <div class="panel-label">What We Do</div>
+            <div class="service-list">
+                <div class="service-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                    Remodeling
+                </div>
+                <div class="service-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    New Construction
+                </div>
+                <div class="service-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                    Repairs &amp; Maintenance
+                </div>
+                <div class="service-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+                    Additions &amp; Expansions
+                </div>
+                <div class="service-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    Kitchens &amp; Bathrooms
+                </div>
+                <div class="service-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    Decks &amp; Concrete
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-alt">
+            <div class="panel-label">About</div>
+            <div class="stat-row">
+                <div class="stat"><span class="stat-num">20+</span><div class="stat-lbl">Years in<br>Business</div></div>
+                <div class="stat"><span class="stat-num">100%</span><div class="stat-lbl">Locally<br>Owned</div></div>
+            </div>
+            <p class="about-text">S.R. Construction has been serving Oak Forest homeowners for over two decades. <strong>Steve Reimer</strong> and his crew handle every job personally — no subs, no handoffs. You get the same care on a small repair as you do on a full remodel.</p>
+            <div class="panel-label" style="margin-top: 8px;">Contact</div>
+            <div class="contact-stack">
+                <div class="c-row">
+                    <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <div><div class="c-label">Phone</div><div class="c-val"><a href="tel:7089459119">(708) 945-9119</a></div></div>
+                </div>
+                <div class="c-row">
+                    <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <div><div class="c-label">Email</div><div class="c-val"><a href="mailto:srconstruction9119@gmail.com">srconstruction9119@gmail.com</a></div></div>
+                </div>
+                <div class="c-row">
+                    <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div><div class="c-label">Based In</div><div class="c-val">Oak Forest, IL 60452</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">S.R. <span>Construction</span></div>
+        <div class="footer-copy">&copy; 2025 S.R. Construction &middot; Oak Forest, IL</div>
+        <a href="tel:7089459119" class="footer-phone">(708) 945-9119</a>
+    </div>
+</footer>
+
+</body>
+</html>
