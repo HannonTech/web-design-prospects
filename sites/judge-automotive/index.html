@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Judge Automotive & Towing — Oak Forest's trusted auto repair and 24/7 towing service since 1995. Located at 16210 S. Cicero Ave, Oak Forest, IL.">
-    <title>Judge Automotive & Towing | Oak Forest, IL — Since 1995</title>
+    <meta name="description" content="Judge Automotive & Towing — Oak Forest's trusted auto repair and 24/7 towing since 1995. Call (708) 535-0077.">
+    <title>Judge Automotive & Towing | Oak Forest, IL</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --navy:       #0d1b2a;
@@ -18,396 +18,238 @@
             --white:      #f8f4ed;
             --gray:       #8a9bb0;
         }
-
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
-        body {
-            background: var(--navy);
-            color: var(--white);
-            font-family: 'Barlow', sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        body { background: var(--navy); color: var(--white); font-family: 'Barlow', sans-serif; overflow-x: hidden; }
 
         /* HEADER */
         header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            background: var(--navy);
-            border-bottom: 2px solid var(--amber);
-            padding: 12px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            position: sticky; top: 0; z-index: 100;
+            background: var(--navy); border-bottom: 2px solid var(--amber);
+            padding: 10px 20px; display: flex; align-items: center; justify-content: space-between;
         }
-        .logo { font-family: 'Bebas Neue', cursive; font-size: 1.4rem; letter-spacing: 0.05em; color: var(--white); text-decoration: none; }
+        .logo { font-family: 'Bebas Neue', cursive; font-size: 1.3rem; letter-spacing: 0.05em; color: var(--white); text-decoration: none; }
         .logo span { color: var(--amber); }
-        .header-phone {
-            display: flex; align-items: center; gap: 8px;
+        .btn-call {
+            display: inline-flex; align-items: center; gap: 7px;
             background: var(--amber); color: var(--navy);
-            padding: 8px 16px; border-radius: 2px; text-decoration: none;
-            font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.05em;
+            padding: 9px 18px; border-radius: 2px; text-decoration: none;
+            font-family: 'Bebas Neue', cursive; font-size: 1.2rem; letter-spacing: 0.08em;
             transition: background 0.2s;
         }
-        .header-phone:hover { background: var(--amber-light); }
+        .btn-call:hover { background: var(--amber-light); }
 
         /* HERO */
         .hero {
-            min-height: 100vh; padding-top: 60px;
             position: relative; overflow: hidden;
-            display: flex; align-items: center;
+            padding: 48px 20px 44px;
+            background: linear-gradient(135deg, var(--navy) 55%, var(--navy-light) 100%);
         }
-        .hero-bg {
-            position: absolute; inset: 0;
-            background: linear-gradient(135deg, var(--navy) 60%, var(--navy-light) 100%);
+        .hero::before {
+            content: ''; position: absolute; top: 0; right: -8%; width: 40%; height: 100%;
+            background: var(--amber); clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%); opacity: 0.07;
         }
-        .hero-bg::after {
-            content: ''; position: absolute; inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-            background-size: 200px 200px;
-        }
-        .hero-stripe {
-            position: absolute; top: 0; right: -10%; width: 45%; height: 100%;
-            background: var(--amber); clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%); opacity: 0.07;
-        }
-        .hero-stripe-2 {
-            position: absolute; bottom: -5%; left: -5%; width: 50%; height: 40%;
-            background: var(--amber); clip-path: polygon(0% 40%, 100% 0%, 100% 100%, 0% 100%); opacity: 0.04;
-        }
-        .hero-wrench {
-            position: absolute; right: 4%; top: 50%;
-            transform: translateY(-50%) rotate(-20deg);
-            opacity: 0.05; width: clamp(200px, 30vw, 360px); height: clamp(200px, 30vw, 360px);
-            color: var(--amber);
-        }
-        @media (max-width: 768px) { .hero-wrench { display: none; } }
-
-        .hero-content {
-            position: relative; z-index: 2;
-            padding: 60px 24px; max-width: 680px; margin: 0 auto; width: 100%;
-        }
+        .hero-inner { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; }
         .hero-eyebrow {
-            font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 600;
+            font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700;
             letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber);
-            margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+            margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
         }
-        .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 2px; background: var(--amber); }
-        .hero h1 {
-            font-family: 'Bebas Neue', cursive; font-size: clamp(3.5rem, 10vw, 7rem);
-            line-height: 0.93; letter-spacing: 0.02em; color: var(--white); margin-bottom: 8px;
+        .hero-eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--amber); }
+        h1 {
+            font-family: 'Bebas Neue', cursive; font-size: clamp(2.8rem, 8vw, 5.5rem);
+            line-height: 0.95; letter-spacing: 0.02em; margin-bottom: 12px;
         }
-        .hero h1 .highlight { color: var(--amber); display: block; }
-        .hero-tagline {
-            font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1rem, 3vw, 1.35rem);
-            color: var(--gray); margin-bottom: 40px; letter-spacing: 0.04em;
+        h1 span { color: var(--amber); display: block; }
+        .hero-sub {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem;
+            color: var(--gray); margin-bottom: 24px; letter-spacing: 0.03em;
         }
-        .hero-tagline strong { color: var(--white); font-weight: 600; }
-
-        .hero-cta-group { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
-        @media (min-width: 480px) { .hero-cta-group { flex-direction: row; flex-wrap: wrap; } }
-
-        .btn-call {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: var(--amber); color: var(--navy);
-            padding: 16px 28px; font-family: 'Bebas Neue', cursive; font-size: 1.4rem;
-            letter-spacing: 0.1em; text-decoration: none; border-radius: 2px;
-            transition: background 0.2s, transform 0.15s;
-            box-shadow: 0 4px 24px rgba(245,166,35,0.28);
-        }
-        .btn-call:hover { background: var(--amber-light); transform: translateY(-1px); }
-        .btn-call:active { transform: translateY(0); }
-
+        .hero-sub strong { color: var(--white); }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
         .btn-outline {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: transparent; color: var(--white);
-            padding: 16px 28px; font-family: 'Barlow Condensed', sans-serif;
-            font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-            text-decoration: none; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 2px;
+            display: inline-flex; align-items: center; gap: 8px;
+            border: 1.5px solid rgba(255,255,255,0.2); color: var(--white);
+            padding: 9px 18px; border-radius: 2px; text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+            font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase;
             transition: border-color 0.2s, color 0.2s;
         }
         .btn-outline:hover { border-color: var(--amber); color: var(--amber); }
+        .hero-badges { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; }
+        .badge { display: flex; align-items: center; gap: 6px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; color: var(--gray); }
+        .badge::before { content: ''; width: 5px; height: 5px; background: var(--amber); border-radius: 50%; flex-shrink: 0; }
 
-        .hero-badges { margin-top: 48px; display: flex; flex-wrap: wrap; gap: 20px; }
-        .badge { display: flex; align-items: center; gap: 8px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; color: var(--gray); letter-spacing: 0.05em; }
-        .badge-dot { width: 6px; height: 6px; background: var(--amber); border-radius: 50%; flex-shrink: 0; }
-
-        /* SHARED */
-        section { padding: 80px 24px; }
-        .section-inner { max-width: 1000px; margin: 0 auto; }
-        .section-label {
-            font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700;
-            letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber);
-            margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
-        }
-        .section-label::after { content: ''; width: 40px; height: 1.5px; background: var(--amber); }
-        .section-title { font-family: 'Bebas Neue', cursive; font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: 0.03em; line-height: 1; margin-bottom: 40px; }
-
-        /* SERVICES */
-        .services-section { background: var(--navy-mid); }
-        .services-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr);
+        /* MAIN GRID */
+        .main-grid {
+            max-width: 960px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr;
             gap: 2px; background: rgba(255,255,255,0.05);
         }
-        @media (min-width: 640px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
-        .service-card {
-            background: var(--navy-mid); padding: 32px 24px;
-            display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
-            transition: background 0.2s;
-        }
-        .service-card:hover { background: var(--navy-light); }
-        .service-icon { width: 40px; height: 40px; color: var(--amber); }
-        .service-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); }
-        .service-desc { font-size: 0.85rem; color: var(--gray); line-height: 1.5; }
-        .service-card.featured { background: var(--amber); grid-column: span 2; }
-        @media (min-width: 640px) { .service-card.featured { grid-column: span 1; } }
-        .service-card.featured .service-icon { color: var(--navy); }
-        .service-card.featured .service-name { color: var(--navy); }
-        .service-card.featured .service-desc { color: var(--navy); opacity: 0.75; }
-        .service-card.featured:hover { background: var(--amber-light); }
+        @media (min-width: 720px) { .main-grid { grid-template-columns: 1fr 1fr; } }
 
-        /* ABOUT */
-        .about-section { background: var(--navy); position: relative; overflow: hidden; }
-        .about-year {
-            position: absolute; right: -2%; top: 50%; transform: translateY(-50%);
-            font-family: 'Bebas Neue', cursive; font-size: clamp(8rem, 22vw, 18rem);
-            color: white; opacity: 0.03; letter-spacing: -0.02em;
-            pointer-events: none; user-select: none; white-space: nowrap;
+        /* SERVICES */
+        .services-panel { background: var(--navy-mid); padding: 32px 24px; }
+        .panel-label {
+            font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber);
+            margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
         }
-        .about-content { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr; gap: 48px; }
-        @media (min-width: 768px) { .about-content { grid-template-columns: 1fr 1fr; align-items: start; } }
-        .about-text p { font-size: 1.05rem; color: var(--gray); margin-bottom: 16px; line-height: 1.7; }
-        .about-text p strong { color: var(--white); }
-        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.05); margin-top: 32px; }
-        .stat { background: var(--navy-mid); padding: 24px 16px; text-align: center; }
-        .stat-number { font-family: 'Bebas Neue', cursive; font-size: 2.5rem; color: var(--amber); display: block; line-height: 1; }
-        .stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-top: 6px; }
-        .tow-callout {
-            background: var(--amber); color: var(--navy); padding: 16px 20px;
-            display: flex; align-items: center; gap: 14px; border-radius: 2px; margin-top: 24px;
-        }
-        .tow-callout-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.2; }
-        .tow-callout-number { font-family: 'Bebas Neue', cursive; font-size: 1.4rem; letter-spacing: 0.06em; }
+        .panel-label::after { content: ''; flex: 1; max-width: 32px; height: 1.5px; background: var(--amber); }
+        .panel-title { font-family: 'Bebas Neue', cursive; font-size: 2rem; letter-spacing: 0.03em; margin-bottom: 20px; }
 
-        .map-placeholder {
-            background: var(--navy); border: 1.5px solid rgba(255,255,255,0.08); border-radius: 2px;
-            height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 12px; margin-top: 24px; position: relative; overflow: hidden; text-decoration: none;
+        .service-list { display: flex; flex-direction: column; gap: 2px; }
+        .service-item {
+            display: flex; align-items: center; gap: 12px;
+            background: var(--navy); padding: 12px 14px;
+            font-family: 'Barlow Condensed', sans-serif; font-size: 1rem;
+            font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+            transition: background 0.15s;
+        }
+        .service-item:hover { background: var(--navy-light); }
+        .service-item svg { color: var(--amber); flex-shrink: 0; }
+        .service-item.tow {
+            background: var(--amber); color: var(--navy);
+        }
+        .service-item.tow svg { color: var(--navy); }
+        .service-item.tow:hover { background: var(--amber-light); }
+        .tow-note { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 400; opacity: 0.7; margin-left: auto; letter-spacing: 0.05em; }
+
+        /* INFO PANEL */
+        .info-panel { background: var(--navy-light); padding: 32px 24px; display: flex; flex-direction: column; gap: 28px; }
+
+        .hours-table { width: 100%; border-collapse: collapse; }
+        .hours-table tr { border-bottom: 1px solid rgba(255,255,255,0.07); }
+        .hours-table tr:last-child { border-bottom: none; }
+        .hours-table td { padding: 9px 0; font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; }
+        .hours-table td:first-child { color: var(--gray); font-weight: 600; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.1em; }
+        .hours-table td:last-child { text-align: right; color: var(--white); font-weight: 600; }
+        .hours-table tr.hl td { color: var(--amber); }
+
+        .contact-block { display: flex; flex-direction: column; gap: 14px; }
+        .contact-row { display: flex; gap: 12px; align-items: flex-start; }
+        .c-icon { width: 18px; height: 18px; color: var(--amber); flex-shrink: 0; margin-top: 1px; }
+        .c-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 2px; }
+        .c-val { font-size: 0.95rem; color: var(--white); }
+        .c-val a { color: var(--white); text-decoration: none; }
+        .c-val a:hover { color: var(--amber); }
+
+        /* MAP */
+        .map-box {
+            background: var(--navy); border: 1px solid rgba(255,255,255,0.08); border-radius: 2px;
+            height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 8px; position: relative; overflow: hidden; text-decoration: none;
         }
         .map-grid {
             position: absolute; inset: 0;
             background-image: linear-gradient(rgba(245,166,35,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(245,166,35,0.06) 1px, transparent 1px);
-            background-size: 28px 28px;
+            background-size: 24px 24px;
         }
-        .map-dot { width: 14px; height: 14px; background: var(--amber); border-radius: 50%; position: relative; z-index: 2; box-shadow: 0 0 0 4px rgba(245,166,35,0.2); }
-        .map-dot::after {
-            content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid var(--amber);
-            opacity: 0.4; animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%   { transform: translate(-50%,-50%) scale(0.8); opacity: 0.4; }
-            100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; }
-        }
-        .map-addr { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.04em; color: var(--gray); position: relative; z-index: 2; }
-        .map-link { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); position: relative; z-index: 2; }
-
-        /* HOURS */
-        .hours-section { background: var(--navy-light); }
-        .hours-grid { display: grid; grid-template-columns: 1fr; gap: 48px; }
-        @media (min-width: 768px) { .hours-grid { grid-template-columns: 1fr 1fr; } }
-        .hours-table { width: 100%; border-collapse: collapse; }
-        .hours-table tr { border-bottom: 1px solid rgba(255,255,255,0.07); }
-        .hours-table tr:last-child { border-bottom: none; }
-        .hours-table td { padding: 13px 0; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; letter-spacing: 0.03em; }
-        .hours-table td:first-child { color: var(--gray); font-weight: 600; text-transform: uppercase; font-size: 0.82rem; letter-spacing: 0.1em; }
-        .hours-table td:last-child { text-align: right; color: var(--white); font-weight: 600; }
-        .hours-table tr.hl td { color: var(--amber); }
-        .contact-list { display: flex; flex-direction: column; gap: 24px; }
-        .contact-item { display: flex; gap: 16px; align-items: flex-start; }
-        .contact-icon { width: 20px; height: 20px; color: var(--amber); flex-shrink: 0; margin-top: 2px; }
-        .contact-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
-        .contact-value { font-size: 1rem; color: var(--white); font-weight: 500; }
-        .contact-value a { color: var(--white); text-decoration: none; transition: color 0.2s; }
-        .contact-value a:hover { color: var(--amber); }
+        .map-dot { width: 10px; height: 10px; background: var(--amber); border-radius: 50%; position: relative; z-index: 2; box-shadow: 0 0 0 3px rgba(245,166,35,0.2); }
+        .map-dot::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--amber); opacity: 0.4; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: translate(-50%,-50%) scale(0.8); opacity: 0.4; } 100% { transform: translate(-50%,-50%) scale(2.4); opacity: 0; } }
+        .map-text { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; color: var(--amber); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; position: relative; z-index: 2; }
 
         /* FOOTER */
-        footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 24px; }
-        .footer-inner { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
-        @media (min-width: 640px) { .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; } }
-        .footer-logo { font-family: 'Bebas Neue', cursive; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--white); }
+        footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.07); padding: 20px; }
+        .footer-inner { max-width: 960px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+        .footer-logo { font-family: 'Bebas Neue', cursive; font-size: 1.1rem; color: var(--white); }
         .footer-logo span { color: var(--amber); }
-        .footer-copy { font-size: 0.8rem; color: var(--gray); font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.05em; }
-        .footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.05em; color: var(--amber); text-decoration: none; }
-
-        /* SCROLL FADE */
-        .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; color: var(--gray); letter-spacing: 0.05em; }
+        .footer-phone { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--amber); text-decoration: none; }
     </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
-    <a href="#home" class="logo">Judge <span>Auto</span> &amp; Towing</a>
-    <a href="tel:7085350077" class="header-phone">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    <a href="#" class="logo">Judge <span>Auto</span> &amp; Towing</a>
+    <a href="tel:7085350077" class="btn-call">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         (708) 535-0077
     </a>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="home">
-    <div class="hero-bg"></div>
-    <div class="hero-stripe"></div>
-    <div class="hero-stripe-2"></div>
-    <svg class="hero-wrench" viewBox="0 0 100 100" fill="currentColor">
-        <path d="M68.5,9.5C61.2,2.2,50.3,0.1,41,3.8l13.4,13.4c1.9,1.9,1.9,4.9,0,6.8l-8.6,8.6c-1.9,1.9-4.9,1.9-6.8,0 L25.6,19.2C21.9,28.5,24,39.4,31.3,46.7c6.8,6.8,16.7,9,25.6,6.6l26.7,26.7c3.3,3.3,3.3,8.7,0,12l-7.1,7.1 c-3.3,3.3-8.7,3.3-12,0L37.8,72.4c-2.4,8.9-0.2,18.8,6.6,25.6c7.3,7.3,18.2,9.4,27.5,5.7L58.5,90.3 c-1.9-1.9-1.9-4.9,0-6.8l8.6-8.6c1.9-1.9,4.9-1.9,6.8,0l13.4,13.4C90.6,79.0,88.5,68.1,81.2,60.8 c-6.8-6.8-16.7-9-25.6-6.6L30.1,28.3C27.7,19.4,29.9,9.5,36.7,2.7"/>
-    </svg>
-    <div class="hero-content">
+<section class="hero">
+    <div class="hero-inner">
         <div class="hero-eyebrow">Oak Forest, IL &mdash; Since 1995</div>
-        <h1>Judge<span class="highlight">Automotive</span>&amp; Towing</h1>
-        <p class="hero-tagline"><strong>Honest repairs. Fast response.</strong><br>Your neighborhood shop for 30 years running.</p>
-        <div class="hero-cta-group">
+        <h1>Judge<span>Automotive &amp; Towing</span></h1>
+        <p class="hero-sub"><strong>Honest repairs. Fast response.</strong> Your neighborhood shop for 30 years.</p>
+        <div class="hero-actions">
             <a href="tel:7085350077" class="btn-call">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                 Call (708) 535-0077
             </a>
-            <a href="#services" class="btn-outline">Our Services</a>
+            <a href="https://maps.google.com/?q=16210+S+Cicero+Ave+Oak+Forest+IL+60452" target="_blank" rel="noopener" class="btn-outline">Get Directions</a>
         </div>
         <div class="hero-badges">
-            <div class="badge"><span class="badge-dot"></span> 24/7 Towing Available</div>
-            <div class="badge"><span class="badge-dot"></span> Family Owned Since 1995</div>
-            <div class="badge"><span class="badge-dot"></span> Oak Forest, IL</div>
+            <span class="badge">24/7 Towing</span>
+            <span class="badge">Family Owned Since 1995</span>
+            <span class="badge">Oak Forest, IL</span>
         </div>
     </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services-section" id="services">
-    <div class="section-inner">
-        <div class="section-label fade-in">What We Do</div>
-        <h2 class="section-title fade-in">Our Services</h2>
-        <div class="services-grid fade-in">
-            <div class="service-card featured">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                <div class="service-name">24/7 Towing</div>
-                <div class="service-desc">Stranded any time of day or night? Call us. Fast response throughout Oak Forest and surrounding areas &mdash; we never stop running.</div>
+<div class="main-grid">
+    <div class="services-panel">
+        <div class="panel-label">Services</div>
+        <div class="service-list">
+            <div class="service-item tow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                Towing
+                <span class="tow-note">24 / 7</span>
             </div>
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-                <div class="service-name">General Repair</div>
-                <div class="service-desc">Engine diagnostics, tune-ups, electrical work, and everything in between. We fix it right the first time.</div>
+            <div class="service-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                General Repair
             </div>
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
-                <div class="service-name">Oil Changes</div>
-                <div class="service-desc">Quick, clean oil service using quality fluids. In and out &mdash; no appointment needed.</div>
+            <div class="service-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                Oil Changes
             </div>
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="22"/><line x1="2" y1="12" x2="8" y2="12"/><line x1="16" y1="12" x2="22" y2="12"/></svg>
-                <div class="service-name">Brakes</div>
-                <div class="service-desc">Inspection, pad replacement, rotor resurfacing, and full brake system service. Don't wait on brakes.</div>
+            <div class="service-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="22"/><line x1="2" y1="12" x2="8" y2="12"/><line x1="16" y1="12" x2="22" y2="12"/></svg>
+                Brakes
             </div>
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
-                <div class="service-name">Tires</div>
-                <div class="service-desc">New tires, rotations, balancing, and flat repair. We'll get you rolling again fast.</div>
+            <div class="service-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+                Tires
             </div>
-            <div class="service-card">
-                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                <div class="service-name">Roadside Assist</div>
-                <div class="service-desc">Jump starts, lockouts, flat tires, fuel delivery. One call handles it all.</div>
+            <div class="service-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                Roadside Assistance
             </div>
         </div>
     </div>
-</section>
 
-<!-- ABOUT -->
-<section class="about-section" id="about">
-    <div class="about-year">1995</div>
-    <div class="section-inner">
-        <div class="about-content">
-            <div class="fade-in">
-                <div class="section-label">About Us</div>
-                <h2 class="section-title">Serving Oak Forest<br>For 30 Years</h2>
-                <div class="about-text">
-                    <p>Judge Automotive &amp; Towing has been a fixture on Cicero Avenue since <strong>1995</strong>. Not a chain, not a franchise &mdash; just a <strong>family-owned shop</strong> that's been keeping the cars of Oak Forest running for three decades.</p>
-                    <p>We believe in <strong>honest diagnostics, fair pricing, and work that gets done right</strong>. No upsells you don't need. No runaround. Just straight answers and solid repairs.</p>
-                    <p>Whether you need a quick oil change or a full engine overhaul &mdash; or you're stuck on the side of the road at 2am &mdash; we're the number to have in your phone.</p>
-                </div>
-                <div class="stats-row">
-                    <div class="stat"><span class="stat-number">30+</span><div class="stat-label">Years in<br>Oak Forest</div></div>
-                    <div class="stat"><span class="stat-number">24/7</span><div class="stat-label">Towing<br>Available</div></div>
-                    <div class="stat"><span class="stat-number">100%</span><div class="stat-label">Family<br>Owned</div></div>
-                </div>
+    <div class="info-panel">
+        <div>
+            <div class="panel-label">Hours</div>
+            <table class="hours-table">
+                <tr><td>Mon &ndash; Fri</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
+                <tr><td>Saturday</td><td>8:00 AM &ndash; 12:00 PM</td></tr>
+                <tr><td>Sunday</td><td>Closed</td></tr>
+                <tr class="hl"><td>Towing</td><td>24 / 7</td></tr>
+            </table>
+        </div>
+        <div class="contact-block">
+            <div class="panel-label">Contact</div>
+            <div class="contact-row">
+                <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <div><div class="c-label">Phone</div><div class="c-val"><a href="tel:7085350077">(708) 535-0077</a></div></div>
             </div>
-            <div class="fade-in">
-                <div class="tow-callout">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                    <div>
-                        <div class="tow-callout-text">Need a Tow Right Now?</div>
-                        <div class="tow-callout-number">(708) 535-0077</div>
-                    </div>
-                </div>
-                <a href="https://maps.google.com/?q=16210+S+Cicero+Ave+Oak+Forest+IL+60452" target="_blank" rel="noopener" class="map-placeholder">
-                    <div class="map-grid"></div>
-                    <div class="map-dot"></div>
-                    <div class="map-addr">16210 S. Cicero Ave, Oak Forest, IL</div>
-                    <span class="map-link">Get Directions &rarr;</span>
-                </a>
+            <div class="contact-row">
+                <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div><div class="c-label">Address</div><div class="c-val">16210 S. Cicero Ave, Oak Forest, IL 60452</div></div>
             </div>
         </div>
+        <a href="https://maps.google.com/?q=16210+S+Cicero+Ave+Oak+Forest+IL+60452" target="_blank" rel="noopener" class="map-box">
+            <div class="map-grid"></div>
+            <div class="map-dot"></div>
+            <div class="map-text">Get Directions &rarr;</div>
+        </a>
     </div>
-</section>
+</div>
 
-<!-- HOURS & CONTACT -->
-<section class="hours-section" id="hours">
-    <div class="section-inner">
-        <div class="section-label fade-in">Find Us</div>
-        <h2 class="section-title fade-in">Hours &amp; Contact</h2>
-        <div class="hours-grid fade-in">
-            <div>
-                <table class="hours-table">
-                    <tr><td>Monday</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
-                    <tr><td>Tuesday</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
-                    <tr><td>Wednesday</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
-                    <tr><td>Thursday</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
-                    <tr><td>Friday</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
-                    <tr><td>Saturday</td><td>8:00 AM &ndash; 12:00 PM</td></tr>
-                    <tr><td>Sunday</td><td>Closed</td></tr>
-                    <tr class="hl"><td>Towing</td><td>24 / 7</td></tr>
-                </table>
-            </div>
-            <div class="contact-list">
-                <div class="contact-item">
-                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                    <div>
-                        <div class="contact-label">Phone</div>
-                        <div class="contact-value"><a href="tel:7085350077">(708) 535-0077</a></div>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <div>
-                        <div class="contact-label">Address</div>
-                        <div class="contact-value">16210 S. Cicero Ave<br>Oak Forest, IL 60452</div>
-                    </div>
-                </div>
-                <div style="padding-top: 8px;">
-                    <a href="tel:7085350077" class="btn-call" style="font-size:1.15rem;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                        Call Now
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
     <div class="footer-inner">
         <div class="footer-logo">Judge <span>Auto</span> &amp; Towing</div>
@@ -415,13 +257,6 @@
         <a href="tel:7085350077" class="footer-phone">(708) 535-0077</a>
     </div>
 </footer>
-
-<script>
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
