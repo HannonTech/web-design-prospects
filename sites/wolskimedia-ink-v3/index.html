@@ -14,10 +14,9 @@ body{font-family:'Inter',system-ui,sans-serif;color:#1a1a2e;line-height:1.6}
 
 /* HERO */
 .hero{
-  min-height:100vh;min-height:100dvh;
   display:flex;align-items:center;justify-content:center;text-align:center;
   background:linear-gradient(145deg,#0d3b4a 0%,#14636e 40%,#1a7a7a 100%);
-  color:#fff;padding:2rem 1.5rem;position:relative;overflow:hidden;
+  color:#fff;padding:3.5rem 1.5rem;position:relative;overflow:hidden;
 }
 .hero::before{
   content:'';position:absolute;inset:0;
@@ -43,15 +42,15 @@ body{font-family:'Inter',system-ui,sans-serif;color:#1a1a2e;line-height:1.6}
 
 /* INFO */
 .info{
-  background:#f7f1eb;padding:5rem 1.5rem;
+  background:#f7f1eb;padding:3rem 1.5rem;
   border-top:4px solid #e85d25;
 }
 .info-inner{max-width:800px;margin:0 auto}
-.info h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:1.5rem;color:#0d3b4a}
+.info h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:1.25rem;color:#0d3b4a}
 .info-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
 @media(min-width:640px){.info-grid{grid-template-columns:1fr 1fr}}
 .info-card{
-  background:#fff;border-radius:10px;padding:1.75rem;
+  background:#fff;border-radius:10px;padding:1.25rem 1.5rem;
   box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:4px solid #14636e;
 }
 .info-card h3{font-family:'Montserrat',sans-serif;font-size:1.05rem;margin-bottom:.4rem;color:#0d3b4a}
@@ -59,12 +58,12 @@ body{font-family:'Inter',system-ui,sans-serif;color:#1a1a2e;line-height:1.6}
 
 /* CONTACT */
 .contact{
-  background:#111827;color:#fff;padding:5rem 1.5rem 3rem;text-align:center;
+  background:#111827;color:#fff;padding:3rem 1.5rem 2rem;text-align:center;
 }
 .contact-inner{max-width:600px;margin:0 auto}
 .contact h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:.5rem}
-.contact .sub{color:rgba(255,255,255,.6);margin-bottom:2.5rem;font-size:.95rem}
-.contact-grid{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2.5rem}
+.contact .sub{color:rgba(255,255,255,.6);margin-bottom:1.75rem;font-size:.95rem}
+.contact-grid{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:1.75rem}
 @media(min-width:640px){.contact-grid{flex-direction:row;justify-content:center;gap:2rem}}
 .contact-item{display:flex;align-items:center;gap:.7rem;text-align:left}
 .contact-item svg{flex-shrink:0;width:24px;height:24px;color:#ff8a5c}
