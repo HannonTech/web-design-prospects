@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S.R. Construction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #003366;
+      --secondary: #f0f0f0;
+      --accent: #007acc;
+      --text: #333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: var(--accent);
+    }
+    .hero {
+      background: linear-gradient(135deg, #003366, #004d99);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .hero button {
+      background: white;
+      color: var(--primary);
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .hero button:hover {
+      background: #f0f0f0;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section-title {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+    }
+    .contact {
+      background: var(--secondary);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .contact h2 {
+      margin-bottom: 30px;
+    }
+    .contact .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .contact .info svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--primary);
+    }
+    .contact .info p {
+      font-size: 1.1em;
+      margin: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      font-size: 0.9em;
+    }
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.5em;
+      }
+      .hero p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>S.R. Construction</h1>
+    <p>20+ Years of Expert Craftsmanship | Free Estimate</p>
+    <button onclick="window.location.href='tel:7089459119'">Request Free Estimate</button>
+  </section>
+  <section>
+    <div class="section-title">Experienced General Contractor</div>
+    <p>With over two decades of experience, S.R. Construction delivers reliable, high-quality residential and commercial construction services. We specialize in turning your vision into reality with precision and professionalism.</p>
+  </section>
+  <section class="contact">
+    <h2>Find Us</h2>
+    <div class="info">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+      <p>15329 Kilpatrick, Oak Forest, IL 60452</p>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+      </svg>
+      <a href="tel:7089459119">(708) 945-9119</a>
+    </div>
+  </section>
+  <footer>&copy; 2026 S.R. Construction</footer>
+</body>
+</html>
