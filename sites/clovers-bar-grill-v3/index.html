@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clover's Bar & Grill — Oak Forest, IL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #1a1209;
+  color: #f5f0e1;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10,8,4,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+  padding: 0.6rem 1.25rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-size: 1.1rem;
+  color: #d4af37;
+  text-decoration: none;
+}
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: #d4af37; color: #1a1209;
+  font-weight: 700; font-size: 0.85rem;
+  padding: 0.45rem 1rem; border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: #e6c44a; }
+.nav-cta svg { width: 16px; height: 16px; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 6rem 1.5rem 4rem;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(34,120,50,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 80%, rgba(212,175,55,0.15) 0%, transparent 50%),
+    linear-gradient(175deg, #0d1f0f 0%, #132e18 40%, #0f1a12 70%, #0a0e06 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5C30 5 35 15 30 20C25 15 30 5 30 5zM20 25C20 25 25 35 20 40C15 35 20 25 20 25zM40 25C40 25 45 35 40 40C35 35 40 25 40 25zM30 30C30 30 35 40 30 45C25 40 30 30 30 30Z' fill='none' stroke='rgba(212,175,55,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-clover {
+  font-size: 5rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 30px rgba(212,175,55,0.3));
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 900;
+  color: #d4af37;
+  text-shadow: 0 2px 30px rgba(212,175,55,0.2);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+}
+.hero-tagline {
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  color: #a8d5a2;
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+.hero-sub {
+  font-size: 1rem;
+  color: #c4b99a;
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: #d4af37; color: #0d1f0f;
+  font-size: 1.15rem; font-weight: 700;
+  padding: 1rem 2.5rem; border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 25px rgba(212,175,55,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 35px rgba(212,175,55,0.5);
+}
+.hero-cta svg { width: 22px; height: 22px; }
+.hero-note {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #7a7365;
+}
+
+/* SECTION COMMON */
+section { padding: 4rem 1.25rem; }
+.section-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #d4af37;
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #f5f0e1;
+  margin-bottom: 1rem;
+}
+.section-divider {
+  width: 60px; height: 3px;
+  background: #d4af37;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+
+/* INFO SECTION */
+.info-section { background: #1a1209; }
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+@media (min-width: 640px) {
+  .info-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+}
+.info-card h3 {
+  font-size: 1.3rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+.event-list, .menu-list {
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: 0.6rem;
+}
+.event-list li, .menu-list li {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.95rem;
+  color: #d4cbb8;
+}
+.event-list li::before {
+  content: '🎯';
+  flex-shrink: 0;
+}
+.menu-list li::before {
+  content: '🍽️';
+  flex-shrink: 0;
+}
+.hours-block {
+  background: rgba(212,175,55,0.06);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+.hours-block p {
+  display: flex; justify-content: space-between;
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+  color: #c4b99a;
+}
+.hours-block p strong { color: #f5f0e1; }
+.hours-note {
+  font-size: 0.8rem;
+  color: #7a7365;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* GALLERY */
+.gallery-section {
+  background: linear-gradient(180deg, #1a1209 0%, #12100a 50%, #1a1209 100%);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 640px) {
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-grid img:first-child { grid-column: 1 / -1; }
+}
+.gallery-grid img {
+  width: 100%; height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid rgba(212,175,55,0.15);
+  transition: transform 0.3s, border-color 0.3s;
+}
+.gallery-grid img:hover {
+  transform: scale(1.02);
+  border-color: rgba(212,175,55,0.4);
+}
+
+/* CONTACT */
+.contact-section {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(34,120,50,0.15) 0%, transparent 60%),
+    #1a1209;
+  padding-bottom: 2rem;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  text-align: center;
+}
+@media (min-width: 640px) {
+  .contact-grid { grid-template-columns: repeat(3, 1fr); text-align: left; }
+}
+.contact-item {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0.75rem;
+}
+@media (min-width: 640px) {
+  .contact-item { align-items: flex-start; }
+}
+.contact-icon {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: rgba(212,175,55,0.1);
+  border: 1px solid rgba(212,175,55,0.25);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.contact-icon svg {
+  width: 24px; height: 24px;
+  color: #d4af37;
+}
+.contact-item h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #7a7365;
+}
+.contact-item p, .contact-item a {
+  font-size: 1rem;
+  color: #f5f0e1;
+  text-decoration: none;
+}
+.contact-item a:hover { color: #d4af37; text-decoration: underline; }
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: #0d0b06;
+  font-size: 0.8rem;
+  color: #5a5347;
+}
+.footer span { color: #d4af37; }
+
+/* UTIL */
+.clover-inline { color: #4ade80; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-brand">🍀 Clover's Bar &amp; Grill</a>
+  <a href="tel:7085550100" class="nav-cta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+    </svg>
+    Call Now
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-clover">🍀</div>
+  <h1>Clover's Bar &amp; Grill</h1>
+  <p class="hero-tagline">Eat, Drink, and Get Lucky!</p>
+  <p class="hero-sub">Your neighborhood Irish-pub bar and grill in Oak Forest. Full bar, great food, and a good time — every day of the week.</p>
+  <a href="tel:7085550100" class="hero-cta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+    </svg>
+    (708) 555-0100
+  </a>
+  <p class="hero-note">15548 Cicero Ave, Oak Forest, IL 60452</p>
+</section>
+
+<!-- INFO -->
+<section class="info-section" id="info">
+  <div class="section-inner">
+    <div class="info-grid">
+      <div class="info-card">
+        <p class="section-label">What's Happening</p>
+        <h2>Weekly Events &amp; Signatures</h2>
+        <div class="section-divider"></div>
+        <ul class="event-list">
+          <li><strong>Monday</strong> — Family Feud Night</li>
+          <li><strong>Tuesday</strong> — Trivia Night</li>
+          <li><strong>Wednesday</strong> — Bingo Night</li>
+          <li><strong>Thursday</strong> — Singo Night</li>
+          <li><strong>Saturday</strong> — Live Music</li>
+          <li><strong>Sunday</strong> — Karaoke Night</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <p class="section-label">On the Menu</p>
+        <h2>Crowd Favorites</h2>
+        <div class="section-divider"></div>
+        <ul class="menu-list">
+          <li>The Reuben Sandwich</li>
+          <li>Classic Smash Burgers</li>
+          <li>Pulled Pork Nachos</li>
+          <li>Garlic Parmesan Wings</li>
+          <li>Handmade Salads &amp; Sandwiches</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hours-block" style="margin-top: 2.5rem;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:#d4af37; margin-bottom:0.75rem;">🍻 Hours</h3>
+      <p><span>Mon – Thu</span> <strong>11:00 AM – 2:00 AM</strong></p>
+      <p><span>Fri – Sat</span> <strong>11:00 AM – 3:00 AM</strong></p>
+      <p><span>Sunday</span> <strong>11:00 AM – 1:00 AM</strong></p>
+      <p class="hours-note">Open daily. Hours may vary — call ahead to confirm.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="photos">
+  <div class="section-inner">
+    <p class="section-label">Take a Look</p>
+    <h2>At Clover's</h2>
+    <div class="section-divider"></div>
+    <div class="gallery-grid">
+      <img src="https://cloversbarandgrill.com/images/bingo1.webp?version=4db03ef9d207a460195ce695ab889835" alt="Bingo night at Clover's Bar & Grill — lively atmosphere with guests playing" loading="lazy">
+      <img src="https://cloversbarandgrill.com/images/bingo2.webp?version=092a020f5b25d2deb1ef287bb44b6ab0" alt="Crowd enjoying Wednesday Bingo at Clover's Bar & Grill" loading="lazy">
+      <img src="https://cloversbarandgrill.com/images/unnamed%20(2).webp?version=d3a7efa3f77405e6d86576ab1bf95724" alt="Interior of Clover's Bar & Grill showing the cozy bar and dining area" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div style="text-align:center; margin-bottom: 2.5rem;">
+      <p class="section-label">Find Us</p>
+      <h2>Come On In</h2>
+      <div class="section-divider" style="margin: 1rem auto;"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Phone</h3>
+          <a href="tel:7085550100">(708) 555-0100</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Address</h3>
+          <p>15548 Cicero Ave<br>Oak Forest, IL 60452</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <p>Open daily<br>11 AM – 2 AM<br><span style="font-size:0.8rem;color:#7a7365;">Later Fri/Sat</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; 2026 Clover's Bar &amp; Grill. All rights reserved. 🍀</p>
+</footer>
+
+</body>
+</html>
