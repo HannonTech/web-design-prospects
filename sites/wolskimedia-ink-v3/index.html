@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WolskiMedia Ink — Local Direct Mail &amp; Coupon Advertising</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:#1a1a2e;line-height:1.6}
+
+/* HERO */
+.hero{
+  min-height:100vh;min-height:100dvh;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  background:linear-gradient(145deg,#0d3b4a 0%,#14636e 40%,#1a7a7a 100%);
+  color:#fff;padding:2rem 1.5rem;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(255,255,255,.02) 60px,rgba(255,255,255,.02) 61px),
+             repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(255,255,255,.02) 60px,rgba(255,255,255,.02) 61px);
+  pointer-events:none;
+}
+.hero-content{position:relative;z-index:1;max-width:640px}
+.hero-badge{
+  display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  background:rgba(255,107,53,.18);color:#ff8a5c;padding:.35rem 1rem;border-radius:999px;margin-bottom:1.5rem;
+}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(2.4rem,7vw,4.2rem);font-weight:800;line-height:1.08;margin-bottom:.75rem}
+.hero h1 span{color:#ff8a5c}
+.hero p{font-size:clamp(1rem,2.5vw,1.2rem);color:rgba(255,255,255,.82);max-width:520px;margin:0 auto 2rem}
+.cta-btn{
+  display:inline-block;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;
+  color:#fff;background:#e85d25;padding:.95rem 2.4rem;border-radius:8px;text-decoration:none;
+  transition:background .2s,transform .15s;
+  box-shadow:0 4px 20px rgba(232,93,37,.35);
+}
+.cta-btn:hover{background:#d14e18;transform:translateY(-2px)}
+
+/* INFO */
+.info{
+  background:#f7f1eb;padding:5rem 1.5rem;
+  border-top:4px solid #e85d25;
+}
+.info-inner{max-width:800px;margin:0 auto}
+.info h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:1.5rem;color:#0d3b4a}
+.info-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:640px){.info-grid{grid-template-columns:1fr 1fr}}
+.info-card{
+  background:#fff;border-radius:10px;padding:1.75rem;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:4px solid #14636e;
+}
+.info-card h3{font-family:'Montserrat',sans-serif;font-size:1.05rem;margin-bottom:.4rem;color:#0d3b4a}
+.info-card p{font-size:.93rem;color:#4a4a5a}
+
+/* CONTACT */
+.contact{
+  background:#111827;color:#fff;padding:5rem 1.5rem 3rem;text-align:center;
+}
+.contact-inner{max-width:600px;margin:0 auto}
+.contact h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:.5rem}
+.contact .sub{color:rgba(255,255,255,.6);margin-bottom:2.5rem;font-size:.95rem}
+.contact-grid{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2.5rem}
+@media(min-width:640px){.contact-grid{flex-direction:row;justify-content:center;gap:2rem}}
+.contact-item{display:flex;align-items:center;gap:.7rem;text-align:left}
+.contact-item svg{flex-shrink:0;width:24px;height:24px;color:#ff8a5c}
+.contact-item .detail{font-size:.92rem}
+.contact-item .detail strong{display:block;font-weight:600;color:#fff}
+.contact-item .detail a{color:rgba(255,255,255,.75);text-decoration:none;transition:color .2s}
+.contact-item .detail a:hover{color:#ff8a5c}
+.contact .cta-btn{margin-top:.5rem}
+footer{
+  border-top:1px solid rgba(255,255,255,.1);
+  margin-top:3rem;padding-top:1.5rem;font-size:.8rem;color:rgba(255,255,255,.35);
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Frankfort, IL &amp; Surrounding Communities</div>
+    <h1>WolskiMedia <span>Ink</span></h1>
+    <p>We get your coupons and special offers directly into the hands of thousands of local households — so your business fills with more customers, not more guesswork.</p>
+    <a href="tel:7085989380" class="cta-btn">📞&nbsp; Call (708) 598-9380</a>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="info" id="how-it-works">
+  <div class="info-inner">
+    <h2>How It Works</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>1. You Design Your Offer</h3>
+        <p>Send us your coupon, deal, or advertisement. We'll format it to fit our mailer packets — no complicated specs, no design fees.</p>
+      </div>
+      <div class="info-card">
+        <h3>2. We Mail to Your Target Area</h3>
+        <p>Every month we deliver ad packets door-to-door in your chosen ZIP codes across the Chicago suburbs. Your offer lands right on someone's kitchen table.</p>
+      </div>
+      <div class="info-card">
+        <h3>3. Customers Walk In Your Door</h3>
+        <p>People clip your coupon and bring it to you. Simple. Measurable. One of the most proven ways to fill appointments and drive store traffic.</p>
+      </div>
+      <div class="info-card">
+        <h3>4. Track Results Month Over Month</h3>
+        <p>See what works, drop what doesn't. Our clients know exactly how many impressions each mailing delivers — and they plan their budget accordingly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <h2>Get Started Today</h2>
+    <p class="sub">Call or stop by to learn about our mailer packages and pricing.</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+        <div class="detail">
+          <strong>Phone</strong>
+          <a href="tel:7085989380">(708) 598-9380</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="detail">
+          <strong>Address</strong>
+          <span>11118 Venezia Drive<br>Frankfort, IL 60423</span>
+        </div>
+      </div>
+    </div>
+    <a href="tel:7085989380" class="cta-btn">📞&nbsp; Call Now to Get Started</a>
+  </div>
+</section>
+
+<footer style="text-align:center;background:#111827;color:rgba(255,255,255,.35);font-size:.8rem;border-top:1px solid rgba(255,255,255,.1);padding:0 1.5rem 2rem;">&copy; 2026 WolskiMedia Ink. All rights reserved.</footer>
+
+</body>
+</html>
