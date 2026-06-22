@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clover's Bar & Grill — Eat, Drink, and Get Lucky!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #1a1208;
+  color: #f5f0e1;
+  line-height: 1.6;
+}
+h1, h2, h3 { font-family: 'Unbounded', cursive; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(165deg, #0b350b 0%, #145214 35%, #1a6b1a 60%, #d4a017 100%);
+  padding: 5rem 1.5rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '☘';
+  position: absolute;
+  font-size: 20rem;
+  opacity: 0.06;
+  top: -3rem;
+  right: -3rem;
+  color: #fff;
+}
+.hero-clover { font-size: 3.5rem; margin-bottom: 0.5rem; }
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  margin-bottom: 0.25rem;
+}
+.hero-tagline {
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  color: #ffd700;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+.hero p { max-width: 500px; margin: 0 auto 2rem; color: #dce8cc; font-size: 0.95rem; }
+.btn-call {
+  display: inline-block;
+  background: #d4a017;
+  color: #1a1208;
+  font-family: 'Unbounded', cursive;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 4px 14px rgba(212,160,23,0.35);
+}
+.btn-call:hover, .btn-call:focus { background: #f0b820; transform: translateY(-2px); }
+
+/* SECTIONS */
+section { padding: 3rem 1.25rem; }
+.container { max-width: 900px; margin: 0 auto; }
+section h2 {
+  font-size: 1.6rem;
+  color: #d4a017;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* INFO */
+.info { background: #211a0c; }
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.info-block { background: #2c2313; border-radius: 8px; padding: 1.5rem; border-left: 4px solid #d4a017; }
+.info-block h3 { font-size: 1.1rem; color: #ffd700; margin-bottom: 0.75rem; }
+.info-block p, .info-block li { font-size: 0.92rem; color: #e0d5c0; }
+.info-block ul { list-style: none; padding: 0; }
+.info-block li { padding: 0.3rem 0; border-bottom: 1px solid #3a2f1e; }
+.info-block li:last-child { border-bottom: none; }
+.info-block li strong { color: #f5f0e1; }
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 0;
+}
+.contact-row svg { flex-shrink: 0; width: 22px; height: 22px; }
+.contact-row a { color: #ffd700; text-decoration: none; }
+.contact-row a:hover { text-decoration: underline; }
+
+/* GALLERY */
+.gallery { background: #1a1208; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.gallery-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #3a2f1e;
+  transition: border-color 0.2s;
+}
+.gallery-grid img:hover { border-color: #d4a017; }
+
+/* CONTACT */
+.contact {
+  background: linear-gradient(180deg, #211a0c 0%, #0b350b 100%);
+  text-align: center;
+  padding-bottom: 4rem;
+}
+.contact h2 { margin-bottom: 1rem; }
+.contact .btn-call { margin-top: 1rem; }
+.small-note { font-size: 0.8rem; color: #8a7e68; margin-top: 1.5rem; }
+
+/* FOOTER */
+footer {
+  background: #0a0804;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.78rem;
+  color: #5a5040;
+}
+
+@media (min-width: 640px) {
+  .hero { padding: 6rem 2rem 5rem; }
+  .info-grid { grid-template-columns: 1fr 1fr; }
+  .info-grid .info-block:first-child { grid-column: 1 / -1; }
+  .gallery-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-clover">🍀</div>
+  <h1>Clover's Bar &amp; Grill</h1>
+  <div class="hero-tagline">Eat, Drink, and Get Lucky!</div>
+  <p>Your cozy neighborhood Irish pub on Cicero Ave — full bar, great food, live music, and good times every night of the week.</p>
+  <a href="tel:7085550100" class="btn-call">📞 Call to Order</a>
+</header>
+
+<!-- INFO -->
+<section class="info" id="visit">
+  <div class="container">
+    <h2>Visit Us</h2>
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>🍀 Weekly Events</h3>
+        <ul>
+          <li><strong>Monday</strong> — Family Feud</li>
+          <li><strong>Tuesday</strong> — Trivia Night</li>
+          <li><strong>Wednesday</strong> — Bingo</li>
+          <li><strong>Thursday</strong> — Singo</li>
+          <li><strong>Saturday</strong> — Live Music</li>
+          <li><strong>Sunday</strong> — Karaoke</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>🍔 Signature Menu</h3>
+        <ul>
+          <li><strong>The Reuben</strong> — classic &amp; craveable</li>
+          <li><strong>Classic Burgers</strong> — juicy &amp; grilled to order</li>
+          <li><strong>Pulled Pork Nachos</strong> — smoky &amp; loaded</li>
+          <li><strong>Garlic Parmesan Wings</strong> — crispy perfection</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>☘ Hours</h3>
+        <p><strong>Open Daily</strong><br>
+        Mon – Thu: 11 AM – 2 AM<br>
+        Fri – Sat: 11 AM – 3 AM<br>
+        Sunday: 12 PM – 2 AM</p>
+      </div>
+      <div class="info-block">
+        <h3>📍 Find Us</h3>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>15548 Cicero Ave, Oak Forest, IL 60452</span>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+          <a href="tel:7085550100">(708) 555-0100</a>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Open Daily ~11 AM – 2 AM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <h2>🍀 Inside Clover's</h2>
+    <div class="gallery-grid">
+      <img src="https://cloversbarandgrill.com/images/bingo1.webp?version=4db03ef9d207a460195ce695ab889835" alt="Wednesday bingo night at Clover's Bar & Grill — guests playing bingo with drinks and food">
+      <img src="https://cloversbarandgrill.com/images/bingo2.webp?version=092a020f5b25d2deb1ef287bb44b6ab0" alt="Close-up of bingo cards and chips on the bar at Clover's Bar & Grill">
+      <img src="https://cloversbarandgrill.com/images/unnamed%20(2).webp?version=d3a7efa3f77405e6d86576ab1bf95724" alt="Cozy interior of Clover's Bar & Grill — warm lighting, full bar, and neighborhood vibes">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Get Your Lucky Night Started</h2>
+    <p style="max-width:520px;margin:0 auto 0.5rem;color:#dce8cc;">Drop in for a cold drink, a hot plate, or both. We've got trivia on Tuesdays, bingo on Wednesdays, live music Saturdays, and karaoke Sundays.</p>
+    <a href="tel:7085550100" class="btn-call">📞 (708) 555-0100</a>
+    <p class="small-note">15548 Cicero Ave, Oak Forest, IL 60452 &middot; Open Daily 11 AM – 2 AM</p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Clover's Bar &amp; Grill. All rights reserved.
+</footer>
+
+</body>
+</html>
