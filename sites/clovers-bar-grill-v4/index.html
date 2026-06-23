@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clover's Bar & Grill | Oak Forest, IL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for Consistency */
+        :root {
+            --primary-green: #145a32;
+            --dark-green: #0e3d20;
+            --accent-gold: #fbc02d;
+            --text-dark: #212529;
+            --text-light: #ffffff;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+            --spacing-unit: 1.5rem;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .text-center { text-align: center; }
+        .text-gold { color: var(--accent-gold); }
+        .text-white { color: var(--text-light); }
+        .section-padding { padding: 4rem 0; }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: var(--dark-green);
+            padding: 0.8rem 2rem;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            text-transform: uppercase;
+            border-radius: 50px;
+            cursor: pointer;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent-gold);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--text-light);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--primary-green);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            height: 85vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* Using local image path as requested */
+            background-image: url('images/interior.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(20, 90, 50, 0.85), rgba(20, 90, 50, 0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--text-light);
+            padding: 2rem;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--bg-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .values-quote {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            font-style: italic;
+            border-left: 5px solid var(--accent-gold);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        /* Info Bar (Address, Hours, Phone) */
+        .info-bar {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            padding: 3rem 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .info-item svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item h4 {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .phone-link {
+            font-weight: 500;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        /* Menu Section */
+        #menu {
+            background-color: var(--bg-light);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .menu-category {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .menu-category h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+            color: var(--text-dark);
+        }
+
+        .item-details p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: var(--primary-green);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+        }
+
+        .signature-item {
+            background-color: #f1f8e9;
+            border: 2px solid var(--primary-green);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .signature-item .item-details h4 {
+            color: var(--primary-green);
+        }
+
+        /* Events Section */
+        #events {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        #events h2 {
+            color: var(--accent-gold);
+        }
+
+        .events-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .event-badge {
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid var(--accent-gold);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            letter-spacing: 1px;
+            transition: transform 0.2s;
+        }
+
+        .event-badge:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-green);
+            transform: scale(1.05);
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background-color: var(--bg-white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            height: 300px;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Testimonial & Rating */
+        #testimonial {
+            background-color: var(--bg-light);
+            text-align: center;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .review-box {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .review-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .rating-summary {
+            font-weight: 700;
+            color: var(--primary-green);
+            font-size: 1.2rem;
+        }
+
+        /* Promo Section */
+        #promo {
+            background-color: var(--accent-gold);
+            color: var(--dark-green);
+            text-align: center;
+        }
+
+        #promo h2 {
+            color: var(--dark-green);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-green);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            margin-bottom: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--text-light);
+            margin: 0 10px;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-green);
+                padding: 1rem 0;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span>🍀</span> Clover's Bar & Grill
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">☰</button>
+            <nav class="nav-links">
+                <a href="#about">Our Vibe</a>
+                <a href="#menu">Menu</a>
+                <a href="#events">Events</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Clover's Bar & Grill</h1>
+            <p class="hero-subtitle">Eat, Drink, and Get Lucky!</p>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">Not just a place to drink, a place to belong.</p>
+            <a href="tel:7086312603" class="btn">Call (708) 631-2603</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <h2>Welcome Home</h2>
+                    <p>Clover's Bar & Grill is your neighborhood Irish-pub-style haven. Whether you're looking for a hearty meal, cold brew, or just a place to unwind, we’ve got you covered. It’s about more than just food and drinks; it’s about community.</p>
+                    <div class="values-quote">
+                        "Not just a place to drink, a place to belong."
+                    </div>
+                    <p>Experience a family-like atmosphere where every guest is treated like family. Our goal is simple: make you feel right at home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Hours Bar -->
+    <section id="contact" class="info-bar">
+        <div class="container info-grid">
+            <!-- Address -->
+            <div class="info-item">
+                <svg viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <h4>Location</h4>
+                <p>15548 S Cicero Ave</p>
+                <p>Oak Forest, IL 60452</p>
+            </div>
+
+            <!-- Phone -->
+            <div class="info-item">
+                <svg viewBox="0 0 24 24">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+                </svg>
+                <h4>Call Us</h4>
+                <a href="tel:7086312603" class="phone-link">(708) 631-2603</a>
+            </div>
+
+            <!-- Hours -->
+            <div class="info-item">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <h4>Hours</h4>
+                <p>Mon-Thu: 11am - 2am</p>
+                <p>Fri-Sat: 11am - 3am</p>
+                <p>Sun: 12pm - 2am</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section-padding">
+        <div class="container">
+            <h2 class="text-center">Our Menu</h2>
+            <div class="menu-grid">
+                
+                <!-- Signature Item -->
+                <div class="menu-category">
+                    <h3>Signature</h3>
+                    <div class="menu-item signature-item">
+                        <div class="item-details">
+                            <h4>The Reuben</h4>
+                            <p>A stacked tower of perfectly marbled corned beef, tangy sauerkraut, ooey-gooey Swiss cheese, and just the right smack of zesty Thousand Island dressing, all hugged by buttery, golden-toasted rye bread.</p>
+                        </div>
+                        <div class="item-price text-gold">Chef's Special</div>
+                    </div>
+                </div>
+
+                <!-- Burgers & Grills -->
+                <div class="menu-category">
+                    <h3>Burgers & Grill</h3>
+                    <div class="menu-item">
+                        <div class="item-details">
+                            <h4>Classic Cheese Burger</h4>
+                            <p>Double patty, cheddar cheese, lettuce, tomato, onions, pickles, house sauce.</p>
+                        </div>
+                        <div class="item-price">$12.95</div>
+                    </div>
+                </div>
+
+                <!-- Appetizers -->
+                <div class="menu-category">
+                    <h3>Appetizers</h3>
+                    <div class="menu-item">
+                        <div class="item-details">
+                            <h4>Garlic Parmesan Wings (10 pc)</h4>
+                        </div>
+                        <div class="item-price">$13.95</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-details">
+                            <h4>Giant Pulled Pork Nachos</h4>
+                            <p>Topped with melted cheese, jalapeños, and house salsa.</p>
+                        </div>
+                        <div class="item-price">$12.95</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-details">
+                            <h4>Tater Kegs (5 pc)</h4>
+                        </div>
+                        <div class="item-price">$7.95</div>
+                    </div>
+                </div>
+
+                <!-- Sandwiches -->
+                <div class="menu-category">
+                    <h3>Sandwiches</h3>
+                    <div class="menu-item">
+                        <div class="item-details">
+                            <h4>Greek Souvlaki Sandwich</h4>
+                            <p>Grilled pork, peppers, onions, hummus, and tzatziki on a warm pita.</p>
+                        </div>
+                        <div class="item-price">$11.95</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section-padding">
+        <div class="container">
+            <h2>Weekly Events</h2>
+            <div class="events-wrapper">
+                <div class="event-badge">Monday: Family Feud</div>
+                <div class="event-badge">Tuesday: Trivia</div>
+                <div class="event-badge">Wednesday: Bingo</div>
+                <div class="event-badge">Thursday: Singo</div>
+                <div class="event-badge">Saturday: Live Music</div>
+                <div class="event-badge">Sunday: Karaoke</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <h2 class="text-center">At A Glance</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/interior.webp" alt="Interior of Clover's Bar & Grill atmosphere">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/bingo1.webp" alt="Crowd during Bingo Night">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/bingo2.webp" alt="Bar interior during Bingo Night">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section id="testimonial" class="section-padding">
+        <div class="container">
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"A great little pub with a friendly family-like atmosphere, great food and awesome bartenders."</p>
+                <p class="rating-summary">4.7/5 Stars (Based on 237 reviews)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Section -->
+    <section id="promo" class="section-padding">
+        <div class="container">
+            <h2>Join the Birthday Club!</h2>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">You get a FREE BURGER on your birthday when you join our text club!</p>
+            <a href="sms:7086312603" class="btn" style="background-color: var(--text-light); color: var(--accent-gold); border-color: var(--text-light);">Text Us to Join</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                Follow us on <a href="#">Facebook</a> & <a href="#">Instagram</a>
+            </div>
+            <p>© 2026 Clover's Bar & Grill</p>
+        </div>
+    </footer>
+
+    <!-- Minimal Scripts for Interactivity -->
+    <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (menuBtn && navLinks) {
+                menuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
