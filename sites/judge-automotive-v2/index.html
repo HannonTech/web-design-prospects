@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judge Automotive & Towing | Oak Forest, IL</title>
+    <meta name="description" content="Family-owned automotive repair and towing service in Oak Forest, IL since 1995. 24/7 roadside assistance available.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Color Palette */
+            --primary: #2c3e50; /* Deep Slate Blue */
+            --primary-dark: #1a252f;
+            --accent: #e67e22; /* Safety Orange */
+            --accent-hover: #d35400;
+            --text-light: #ecf0f1;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            
+            /* Spacing */
+            --container-width: 1100px;
+            --section-padding: 4rem 1.5rem;
+        }
+
+        /* Reset & Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .text-center { text-align: center; }
+        .text-accent { color: var(--accent); }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* Badge Styles */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-urgent {
+            background-color: #e74c3c;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .badge-trust {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(231, 76, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+        }
+
+        /* Header / Nav */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            padding: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+            padding: 5rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Abstract background pattern using CSS */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #bdc3c7;
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Trust & Stats Strip */
+        .trust-strip {
+            background-color: var(--bg-white);
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .trust-item h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-item p {
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .rating-stars {
+            color: #f1c40f;
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Sections General */
+        section {
+            padding: var(--section-padding);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.2s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--bg-white);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote-box {
+            background-color: var(--bg-light);
+            border-left: 5px solid var(--accent);
+            padding: 2rem;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        /* Fleet Section */
+        .fleet-section {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .fleet-section .section-title h2 {
+            color: white;
+        }
+        
+        .fleet-section .section-title p {
+            color: #bdc3c7;
+        }
+
+        .fleet-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .fleet-item {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .fleet-item h3 {
+            color: var(--accent);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .fleet-item ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ecf0f1;
+        }
+
+        .fleet-item ul li::before {
+            content: '•';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--bg-light);
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+        }
+
+        .contact-info-card, .hours-card {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hours-list dt {
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 1.5rem;
+        }
+
+        .hours-list dd {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .hours-list dt:first-of-type {
+            margin-top: 0;
+        }
+
+        .distinct-hours {
+            border-top: 2px dashed var(--accent);
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            color: #c0392b;
+            font-weight: 600;
+        }
+
+        .address-text {
+            margin-top: 1rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .address-text svg {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: #95a5a6;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Tweaks */
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .top-bar .container { justify-content: center; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span>Judge Automotive & Towing</span>
+                <span style="opacity: 0.5;">|</span>
+                <a href="tel:7085350077" class="contact-item">
+                    <!-- Phone Icon -->
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+                    </svg>
+                    (708) 535-0077
+                </a>
+            </div>
+            <div class="trust-badge-inline">
+                <span class="badge badge-urgent">24/7 Towing Available</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <span class="badge badge-trust" style="margin-bottom: 1rem; background-color: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);">Family Owned & Operated</span>
+            <h1>Reliable Auto Repair & Towing Since 1995</h1>
+            <p>Your trusted partner for complete automotive service and roadside assistance in Oak Forest, IL. We get you back on the road safely.</p>
+            <div class="hero-actions">
+                <a href="tel:7085350077" class="btn btn-primary">
+                    <!-- Phone Icon -->
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+                    </svg>
+                    Call for Help Now
+                </a>
+                <a href="#services" class="btn btn-outline">View Services</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trust & Stats Strip -->
+    <section class="trust-strip">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <h3>30+</h3>
+                    <p>Years of Service</p>
+                    <p style="margin-top:5px; font-size: 0.8rem; color: #7f8c8d;">Established 1995</p>
+                </div>
+                <div class="trust-item">
+                    <h3>4.8</h3>
+                    <div class="rating-stars">★★★★★</div>
+                    <p>Based on 26 Verified Reviews</p>
+                </div>
+                <div class="trust-item">
+                    <h3>Zero</h3>
+                    <p>Damage Record</p>
+                    <p style="margin-top:5px; font-size: 0.8rem; color: #7f8c8d;">Protected Transport</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container about-content">
+            <div class="section-title">
+                <h2>Why Choose Judge Automotive?</h2>
+                <p>We are a locally owned business dedicated to honest service and customer safety.</p>
+            </div>
+            
+            <div class="quote-box">
+                "All our drivers are professional and courteous. We treat every vehicle like our own, ensuring a <strong>Zero Damage Record</strong> for all our customers."
+            </div>
+
+            <div style="text-align: left; max-width: 600px;">
+                <p>For over three decades, Judge Automotive & Towing has been the go-to solution for vehicle breakdowns and repairs in Oak Forest, IL. We combine decades of experience with a fleet of modern equipment to provide peace of mind when you need it most.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive automotive solutions for domestic cars and light trucks.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Complete Auto Repair
+                    </h3>
+                    <p>Expert diagnosis and repair for all makes and models. From engine issues to brake service, we handle it all.</p>
+                </div>
+                <div class="service-card">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        Oil Changes
+                    </h3>
+                    <p>Quick and reliable oil changes to keep your engine running smoothly and efficiently.</p>
+                </div>
+                <div class="service-card">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        Towing & Roadside Assistance
+                    </h3>
+                    <p>Stranded? We provide reliable roadside assistance to get you to safety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section class="fleet-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Fleet & Equipment</h2>
+                <p>Professional gear to handle jobs of all sizes.</p>
+            </div>
+            <div class="fleet-container">
+                <div class="fleet-item">
+                    <h3>Heavy Duty Towing</h3>
+                    <ul>
+                        <li>4 Tow Trucks</li>
+                        <li>2 Service Trucks</li>
+                        <li>2 Trailers</li>
+                    </ul>
+                </div>
+                <div class="fleet-item">
+                    <h3>Equipment Specs</h3>
+                    <ul>
+                        <li>Hydraulic Lifts</li>
+                        <li>Up to 15,000 lbs Capacity</li>
+                        <li>State-of-the-art Tow Rigs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>We are here to help, day or night.</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <!-- Location & Info -->
+                <div class="contact-info-card">
+                    <h3>Visit Our Shop</h3>
+                    <div class="address-text">
+                        <!-- Location Icon -->
+                        <svg viewBox="0 0 24 24" width="32" height="32">
+                            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <p>16210 S. Cicero Ave</p>
+                        <p>Oak Forest, IL 60452</p>
+                    </div>
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <a href="tel:7085350077" class="btn btn-primary" style="width: 100%;">
+                             Call (708) 535-0077
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hours -->
+                <div class="hours-card">
+                    <h3>Shop Hours</h3>
+                    <dl class="hours-list">
+                        <dt>Mon - Fri</dt>
+                        <dd>8:00 AM - 5:00 PM</dd>
+                        
+                        <dt>Saturday</dt>
+                        <dd>Closed</dd>
+
+                        <dt>Sunday</dt>
+                        <dd>Closed</dd>
+
+                        <!-- Distinct Towing Hours -->
+                        <div class="distinct-hours">
+                            <dt>24-Hour Towing Service</dt>
+                            <dd>Every Day of the Year</dd>
+                            <dd style="font-size: 0.9rem; font-weight: 400; margin-top:0.2rem;">
+                                Call for immediate roadside assistance anytime.
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Judge Automotive & Towing. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
